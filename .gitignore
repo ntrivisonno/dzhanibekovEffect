@@ -1,4 +1,10 @@
 # Byte-compiled / optimized / DLL files
+
+# Emacs files
+*.*~
+
+# Folders
+
 __pycache__/
 *.py[cod]
 *$py.class
