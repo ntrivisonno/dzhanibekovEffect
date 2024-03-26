@@ -68,10 +68,10 @@ def ED_cuaterniones(x, u, k, t):
     velWind_body = Q_body2ned.T.dot(velWind_ned)
     # velocidad relativa en marco body
     vel_rel_body = x[3:6] - velWind_body
-     vt = np.linalg.norm(vel_rel_body)
+    vt = np.linalg.norm(vel_rel_body)
     # AoA
     alpha = np.arctan2(vel_rel_body[2], vel_rel_body[0])
-    alphad = alphaa * 180 / math.pi
+    alphad = alpha * 180 / math.pi
     # Yaw
     beta = np.arctan2(vel_rel_body[1], np.sqrt(vel_rel_body[0]**2 + vel_rel_body[2]**2))
     betad = beta * 180 / math.pi

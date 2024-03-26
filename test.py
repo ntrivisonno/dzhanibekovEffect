@@ -127,7 +127,8 @@ def main():
     sv.save_data(t_N,t[0:t_N+1],x[0:t_N+1,:],Ixx,Iyy,Izz)
 
     plt_data.plot_data(t_N, t[0:t_N+1], x[0:t_N+1,:], phi, theta, psi)
-    
+
+    plt.show()
     print "#--------------------------------------------'"
     print "\n FINISHED, OK!"
     
