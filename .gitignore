@@ -4,6 +4,7 @@
 *.*~
 
 # Folders
+Results/
 
 __pycache__/
 *.py[cod]

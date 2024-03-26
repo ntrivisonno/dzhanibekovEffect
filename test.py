@@ -105,7 +105,7 @@ def main():
         t_N = k+1
 
 
-        if x[t_N,2] < 0.0:
+        if x[t_N,2] < -1.0:
             print "#########################"
             print "Cut-off, floor impact, t=",t[t_N],'[s]'
             break

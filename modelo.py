@@ -52,8 +52,7 @@ def ED_cuaterniones(x, u, k, t):
     x_prima[0:3] = Q_body2ned.dot(x[3:6])  
     x_prima[2] *= -1. # Compute Height  instead of 'depth'
 
-    [phi, theta, psi] = q_body2ned.get_euler_anles()
-    q_prima = q_body2ned.mult_cuat_times_vec(np.array([-x[12]*np.tan(theta),x[11],x[12]]) * .5)
+    q_prima = q_body2ned.mult_cuat_times_vec(x[10:13]*.5)
     x_prima[6] = q_prima.d
     x_prima[7:10] = q_prima.v
 
@@ -86,16 +85,13 @@ def ED_cuaterniones(x, u, k, t):
 
     mach = vt / c
 
-    x_prima[3] = x[12] * x[4] - x[11] * x[5]
-    x_prima[4] = -x[12]*np.tan(theta) * x[5]
-    x_prima[5] = x[11] * x[3] - x[10] * x[4]
+    x_prima[3] = x[12] * x[4] - x[11] * x[5] + 1.0 * 0.0
+    x_prima[4] = x[10] * x[5] - x[12] * x[3] + 1.0 * 0.0
+    x_prima[5] = x[11] * x[3] - x[10] * x[4] + 1.0 * 0.0
 
-    x_prima[10:13] = sp.linalg.solve(inertia_tensor, np.cross(inertia_tensor.dot(x[10:13]),
-                                                              np.array([-x[12]*np.tan(theta),x[11],x[12]]))
-                                     , sym_pos=True)
-
-
-
+    #x_prima[10:13] = sp.linalg.solve(inertia_tensor, np.cross(inertia_tensor.dot(x[10:13]), x[10:13]) + Moments, sym_pos=True)
+    x_prima[10:13] = sp.linalg.solve(inertia_tensor, np.cross(inertia_tensor.dot(x[10:13]), x[10:13]), sym_pos=True)
+    
 
     return x_prima
 
