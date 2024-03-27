@@ -85,7 +85,7 @@ def plot_data(N, t, x, phi, theta, psi):
     if 1:
         fig, axs = plt.subplots(1, 3, figsize=fig_size)
         fig.canvas.set_window_title(u'Euler angles')
-        fig.suptitle(u'Euler angles (Deg)')
+        fig.suptitle(u'Euler angles [Deg]')
         for k in range(3):
             axs[k].plot(t, euler_angles[:,k]*180/math.pi)
             axs[k].grid()
@@ -96,7 +96,7 @@ def plot_data(N, t, x, phi, theta, psi):
     if 1:
         fig, axs = plt.subplots(1, 3, figsize=fig_size)
         fig.canvas.set_window_title('Angle of Attack, yaw and total angle')
-        fig.suptitle('Angles')
+        fig.suptitle('Angles [deg]')
         vt = np.linalg.norm(velocidad_ned, axis=1)
         # AoA
         alfa = np.arctan2(x[:, 5], x[:, 3])
@@ -118,8 +118,6 @@ def plot_data(N, t, x, phi, theta, psi):
         axs[2].set_title('Alpha total')
 
     plt.show(block=False)
-
-    #plt.show()
 
     return
 
