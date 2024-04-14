@@ -15,7 +15,7 @@ def save_data(N, t, x, Ixx, Iyy, Izz, dir="./Results/"):
     # If folder doesn't exist, then create it.
     if not CHECK_FOLDER:
         os.makedirs(dir)
-        print("Result'sFolder created: ", dir)
+        print("Result's Folder created: ", dir)
 
     else:
         print(dir, "Result folder already created.")

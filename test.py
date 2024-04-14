@@ -25,9 +25,7 @@ import plot_data as plt_data
 import save_data as sv
 
 def main():
-    '''
-    aca va le prog principal
-    '''
+
     print "#########################"
     print "Reading parameters."
     np.set_printoptions(precision=3)
@@ -61,7 +59,7 @@ def main():
     # If folder doesn't exist, then create it.
     if not CHECK_FOLDER:
         os.makedirs(MYDIR)
-        print("Result'sFolder created: ", MYDIR)
+        print("Result's Folder created: ", MYDIR)
 
     else:
         print(MYDIR, "Result folder already created.")

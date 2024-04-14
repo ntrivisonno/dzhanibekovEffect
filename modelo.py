@@ -22,22 +22,22 @@ S = math.pi * (0.5 * diam) ** 2
 
 def ED_cuaterniones(x, u, k, t):
     '''
-    :param x: Vector de estados
-    :param u: Vector de acciones de control => podria incidir incidir sobre las fins
-    :return: Vector de derivadas de los estados
+    :param x: states vector
+    :param u: control actions
+    :return: states derivatives
     x[0] -> x_ned (north)
     x[1] -> y_ned (east)
     x[2] -> h_ned = -z_ned (z_ned = down)
-    x[3] -> u (vel x en marco body)
-    x[4] -> v (vel y en marco body)
-    x[5] -> w (vel z en marco body)
-    x[6] -> q_e (parte escalar del cuaternión de orientación)
-    x[7] -> q_v1 (primera componente de la parte vectorial del cuaternión de orientación)
-    x[8] -> q_v2 (segunda componente de la parte vectorial del cuaternión de orientación)
-    x[9] -> q_v3 (tercera componente de la parte vectorial del cuaternión de orientación)
-    x[10] -> p (1era componente de la velocidad angular en marco body)
-    x[11] -> q (2da componente de la velocidad angular en marco body)
-    x[12] -> r (3era componente de la velocidad angular en marco body)
+    x[3] -> u (vel x body frame)
+    x[4] -> v (vel y body frame)
+    x[5] -> w (vel z body frame)
+    x[6] -> q_e (quaternion scalar component)
+    x[7] -> q_v1 (quaternion first vetorial component)
+    x[8] -> q_v2 (quaternion second vetorial component
+    x[9] -> q_v3 (quaternion third vetorial component)
+    x[10] -> p (first component angular velocity body frame)
+    x[11] -> q (second component angular velocity body frame)
+    x[12] -> r (third component angular velocity body frame)
     x[13] -> alfa
     x[14] -> beta
     '''
@@ -61,11 +61,10 @@ def ED_cuaterniones(x, u, k, t):
 
     # --- Dynamic Eq ---#
 
-    # por si consideramos viento no nulo. Son las componentes del vector viento en el marco fijo.
     velWind_ned = np.zeros(3)
-    # vector vel viento en marco body
+    # vector wind vel body frame
     velWind_body = Q_body2ned.T.dot(velWind_ned)
-    # velocidad relativa en marco body
+    # relative vel body frame
     vel_rel_body = x[3:6] - velWind_body
     vt = np.linalg.norm(vel_rel_body)
     # AoA
@@ -89,7 +88,6 @@ def ED_cuaterniones(x, u, k, t):
     x_prima[4] = x[10] * x[5] - x[12] * x[3] + 1.0 * 0.0
     x_prima[5] = x[11] * x[3] - x[10] * x[4] + 1.0 * 0.0
 
-    #x_prima[10:13] = sp.linalg.solve(inertia_tensor, np.cross(inertia_tensor.dot(x[10:13]), x[10:13]) + Moments, sym_pos=True)
     x_prima[10:13] = sp.linalg.solve(inertia_tensor, np.cross(inertia_tensor.dot(x[10:13]), x[10:13]), sym_pos=True)
     
 
