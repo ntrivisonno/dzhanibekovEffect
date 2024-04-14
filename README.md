@@ -5,3 +5,13 @@ The work is presented in research DOI:....
 
 To run the RBD model execute:
 $python2.7 test.py
+
+The packages needed are:
+numpy
+scipy
+scipy.integrate
+math
+matplotlib.pyplot
+os
+h5py
+subprocess
