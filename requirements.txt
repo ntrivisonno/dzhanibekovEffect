@@ -1,8 +1,5 @@
 numpy
 scipy
-scipy.integrate
-math
-matplotlib.pyplot
-os
+scipy
+matplotlib
 h5py
-subprocess
