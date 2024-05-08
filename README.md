@@ -7,10 +7,9 @@ DOI.............
 
 > Python2.7 already installed on your system
 
+In case the `virtualenv` package is not installed, and/or the required version of `python2.7` is also not available to ensure compatibility, follow the steps outlined in [Installing Python and virtualenv.](https://github.com/ntrivisonno/dzhanibekovEffect/tree/main?tab=readme-ov-file#installing-python-and-virtualenv-libraries)
 
-If you have `virtualenv` installed, you can configure an isoleted Python enviroment to run the scripts of the repository.
-
-En caso de no tener el paquete de `virtualenv` instalado, y/o tampoco la versión de `python` necesaria para que exista compatibilidad, seguir los pasos detallados en [Installing Python and virtualenv.](https://github.com/ntrivisonno/dzhanibekovEffect/tree/main?tab=readme-ov-file#installing-python-and-virtualenv-libraries)
+If you have `virtualenv` installed, you can configure an isoleted Python enviroment to run the scripts of the repository. 
 
 Also the repository provides a `requirements.txt` file to facilitate the installation of the dependencies.
 
@@ -38,7 +37,7 @@ Now download the file `requirements.txt` and the all the `*.py` scripts along wi
 
 `~/virtualenvs$ pip install -r requirements.txt`
 
-The main script is `test.py` and to execute it
+The main script is `test.py` and to execute it:
 
 `$python test.py`
 
@@ -90,7 +89,11 @@ Run the downloaded installer and follow the on-screen instructions to install Py
 
 Once you have installed `Python 2.7` on your system, you need to download the `virtualenv` 
 
-`sudo pip2 install virtualenv`
+`sudo pip install virtualenv`
+
+or 
+
+`pip install virtualenv`
 
 Once these packages are installed, you are ready to create the virtual environment, [Creating a Python virtual enviroment.](https://github.com/ntrivisonno/dzhanibekovEffect/tree/main?tab=readme-ov-file#creating-a-python-virtual-enviroment-to-run-the-scripts)
 
