@@ -108,7 +108,8 @@ def plot_data(N, t, x, phi, theta, psi):
         betad = beta * 180 / math.pi
         axs[1].plot(t, betad)
         axs[1].grid()
-        sin_alfa_t = np.sqrt(((np.sin(beta)) ** 2 + (np.cos(beta)) ** 2 * (np.sin(alfa)) ** 2))
+        sin_alfa_t = np.sqrt(((np.sin(beta)) ** 2 + \
+                              (np.cos(beta)) ** 2 * (np.sin(alfa)) ** 2))
         alfa_t = np.arcsin(sin_alfa_t)
         alfa_t_d = alfa_t * 180 / math.pi
         axs[2].plot(t, alfa_t_d)

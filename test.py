@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 '''
-RBD model for reproducing the Dzhanibekov effect also call The Tennis-Racket Paradox or intermediate axis theorem
+RBD model for reproducing the Dzhanibekov effect also call The Tennis-Racket 
+Paradox or intermediate axis theorem
 
 Algorithm coupled with the Journal's paper: DOI:.......
 
@@ -30,7 +31,8 @@ def main():
     print "Reading parameters."
     np.set_printoptions(precision=3)
     np.set_printoptions(suppress=True)
-    m, diam, xcg, ycg, zcg, Ixx, Iyy, Izz, steps, dt = parameters('./Data/data.dat')
+    m, diam, xcg, ycg, zcg, Ixx, Iyy, Izz, steps, dt = \
+        parameters('./Data/data.dat')
     print "Mass=", m, "[kg]"
     print "Diam=", diam, "[m]"
     print "xcg, ycg, zcg=", xcg, ycg, zcg, "[m]"
@@ -46,7 +48,8 @@ def main():
 
     print "#########################"
     print "Reading Initial Conditions."
-    V, alpha, beta, p, q, r, phi, theta, psi, XE, YE, ZE = initial_cond('./Data/Initial_cond.dat')
+    V, alpha, beta, p, q, r, phi, theta, psi, XE, YE, ZE = \
+        initial_cond('./Data/Initial_cond.dat')
     print "Velocity=", V, "[m/s]"
     print "alpha, beta=", alpha, beta, "[deg]"
     print "p,q,r=", p, q, r, "[RPM]"
@@ -98,7 +101,9 @@ def main():
     u = np.zeros((N,4)) 
     t = np.arange(0, N+1) * Ts
     for k in range(N):
-        x[k + 1] = sp.integrate.odeint(lambda _x, _t: modelo.ED_cuaterniones(_x, u[k], k, _t), x[k], [k*Ts, (k+1)*Ts],
+        x[k + 1] = sp.integrate.odeint(lambda _x, _t: \
+                                       modelo.ED_cuaterniones(_x, u[k], k, _t),\
+                                       x[k], [k*Ts, (k+1)*Ts],
                                        rtol=1e-6, atol=1e-6)[-1]
         t_N = k+1
 
